@@ -8,5 +8,3 @@ RUN rm -rf __MACOSX
 RUN mv markups-kindle/* .
 RUN rm -rf markups-kindle 
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
-
-
