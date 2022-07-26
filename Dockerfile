@@ -7,5 +7,3 @@ RUN rm -rf cs.zip
 RUN mv cs/* .
 RUN rm -rf cs
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
-
-
