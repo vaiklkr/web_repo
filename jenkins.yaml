@@ -1,0 +1,18 @@
+- hosts: localhost
+  user: ec2-user
+  become: true
+  tasks:
+    - name: get packages
+      action: get_url url=https://pkg.jenkins.io/redhat-stable/jenkins.repo dest=/etc/yum.repos.d/jenkins.repo
+    - name: get rpm package
+      action: ansible.builtin.rpm_key state=present key=https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+    - name: install
+      action: yum name=jenkins state=present
+    - name: start service
+      shell: systemctl start jenkins
+    - name: print passwd
+      shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+      register: file_content
+    - name: print file content on console
+      debug:
+        msg: "{{file_content}}"
