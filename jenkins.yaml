@@ -10,9 +10,9 @@
       action: yum name=jenkins state=present
     - name: start service
       shell: systemctl start jenkins
-    - name: print passwd
-      shell: cat /var/lib/jenkins/secrets/initialAdminPassword
-      register: file_content
-    - name: print file content on console
-      debug:
-        msg: "{{file_content}}"
+    #- name: print passwd
+    #  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+    #  register: file_content
+    #- name: print file content on console
+    #  debug:
+    #    msg: "{{file_content}}"
