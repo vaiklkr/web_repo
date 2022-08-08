@@ -8,13 +8,18 @@
       action: ansible.builtin.rpm_key state=present key=https://pkg.jenkins.io/redhat-stable/jenkins.io.key
     - name: install
       action: yum name=jenkins state=present
+    - name: enable the jenkins service
+      service:
+         name: jenkins
+         enabled: yes
     - name: start jenkins service
       service:
-         name: httpd
-         state: stopped
-         args:
-           warn: false
-      
+         name: jenkins
+         state: started
+      ignore_errors: true
+         #args:
+         #  warn: false
+
     #- name: print passwd
     #  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
     #  register: file_content
