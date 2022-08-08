@@ -9,13 +9,12 @@
     - name: install
       action: yum name=jenkins state=present
     - name: start service
-      action: service name=jenkins state=started
-      #shell: service jenkins start
+      shell: service jenkins start
+
+    #  action: service name=jenkins state=started
     #- name: print passwd
     #  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
     #  register: file_content
     #- name: print file content on console
     #  debug:
     #    msg: "{{file_content}}"
-
-
