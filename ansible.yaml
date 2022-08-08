@@ -9,9 +9,9 @@
     - name: install
       action: yum name=jenkins state=present
     - name: start service
-      shell: service jenkins start
+    # action: service name=jenkins state=started
+      shell: sudo service jenkins start
 
-    #  action: service name=jenkins state=started
     #- name: print passwd
     #  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
     #  register: file_content
