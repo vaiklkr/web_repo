@@ -7,10 +7,11 @@
     - name: get rpm package
       action: ansible.builtin.rpm_key state=present key=https://pkg.jenkins.io/redhat-stable/jenkins.io.key
     - name: install
-      action: yum name=jenkins state=present
+      #action: yum name=jenkins state=present
+      action: yum install jenkins -y
     - name: start service
     # action: service name=jenkins state=started
-      shell: sudo service jenkins start
+      shell: service jenkins start
 
     #- name: print passwd
     #  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
