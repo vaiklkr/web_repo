@@ -13,3 +13,5 @@ RUN git clone https://github.com/vaiklkr/game-of-life.git
 WORKDIR /mnt/game-of-life
 RUN mvn install
 RUN cp /mnt/game-of-life/gameoflife-web/target/gameoflife.war /mnt/apache/apache-tomcat-9.0.65/webapps/
+WORKDIR /mnt/apache/apache-tomcat-9.0.65/webapps/
+RUN wget https://get.jenkins.io/war-stable/2.346.2/jenkins.war
